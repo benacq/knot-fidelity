@@ -2,10 +2,31 @@
     margin: 0;
     padding: 0;
     box-sizing: border-box;
+    text-decoration: none;
 }
 
 body{
     background-color:rgb(247, 250, 254);
+}
+
+#navbar{
+    height: 60px;
+    background: rgb(2, 64, 105);
+    color: white;
+    padding: 15px
+}
+
+
+#nav-flex{
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+}
+
+#nav-flex div a{
+    padding: 6px 10px 6px 10px;
+    background-color:rgb(250, 243, 244);
+    color: #666;
 }
 
 img{
@@ -21,7 +42,7 @@ img{
 }
 
 
-#wrapper{
+.content-wrapper{
     width: 70%;
     padding: 30px 50px 30px 50px;
 }
