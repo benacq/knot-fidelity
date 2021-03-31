@@ -1,0 +1,47 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="styles/form-style.css">
+    <title>Document</title>
+
+
+    <style>
+        #cancel-btn {
+            margin-left: 10px;
+            height: 40px;
+            width: 110px;
+            color: white;
+            background-color: rgb(168, 91, 77);
+            border: none;
+            border-radius: 5px;
+            font-weight: bold;
+        }
+    </style>
+</head>
+
+<body>
+    <div class="wrapper">
+        <form action='#' method='POST' class="form-flex">
+            <h1 class="header">Edit Post</h1>
+            <label class="input-label">Title</label>
+            <input type="text" name="title" class="form-input" placeholder="Title">
+            <label class="input-label">Content</label>
+            <textarea class='form-input' style="height: 200px" placeholder='Type content...'></textarea>
+            <label class="input-label">Image</label>
+            <input type="file" name="title" class="form-input" placeholder="Title">
+            <label class="input-label">Author</label>
+            <input type="text" name="title" class="form-input" placeholder="Enter Author">
+            <div class="submit-wrapper">
+                <input type="submit" value="Save Changes">
+                <button id="cancel-btn">Cancel</button>
+            </div>
+
+        </form>
+    </div>
+</body>
+
+</html>
