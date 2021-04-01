@@ -1,0 +1,170 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <title>Document</title>
+
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+        }
+
+        body {
+            background-color: rgb(247, 250, 254);
+        }
+
+        nav {
+            height: 60px;
+            background-color: #024069;
+            color: #ffffff;
+        }
+
+        .menu-container {
+            display: flex;
+            justify-content: space-between;
+            padding-top: 15px;
+            padding-left: 15px;
+            padding-right: 15px;
+        }
+
+        .menu-container a {
+            color: black;
+            text-decoration: none;
+            background-color: #e4e4e4;
+            padding: 5px 10px 5px 10px;
+
+        }
+
+        #content-section {
+            margin: 100px;
+            /* CHANGED THIS FROM 50px to 100px */
+
+        }
+
+        img {
+            width: 100%;
+            height: 100%;
+        }
+
+        .grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+            grid-gap: 20px;
+        }
+
+        .card {
+            background-color: white;
+            max-height: 350px;
+            /* CHANGED THIS FROM height to max-height */
+        }
+
+        .card>.img-container {
+            height: 200px;
+        }
+
+
+        /* THIS IS THE ADDITIONAL CODE TO STYLE THE TITLE, THE DETAILS AND THE AUTHOR*/
+
+        .data-container {
+            margin-top: 10px;
+            padding: 5px;
+
+        }
+
+        .data-container h1.title {
+            font-size: 20px;
+            font-weight: normal;
+            text-overflow: ellipsis;
+            overflow: hidden;
+            white-space: nowrap;
+        }
+
+        .data-container p.detail {
+            margin-top: 10px;
+            font-weight: normal;
+            font-size: 16px;
+            color: rgb(51, 51, 51);
+        }
+
+        .data-container p.author {
+            margin-top: 20px;
+            font-size: 15px;
+            text-align: end;
+            font-weight: normal;
+            font-weight: bold;
+            font-style: italic;
+            color: rgb(141, 141, 141);
+        }
+
+        /* END OF NEW CODE */
+    </style>
+
+
+</head>
+
+<body>
+    <div>
+        <nav id="navbar">
+            <div class="menu-container">
+                <h1>Brand</h1>
+                <a href="">Add Post</a>
+            </div>
+        </nav>
+
+        <div id="content-section">
+            <h1>Recent Posts</h1>
+            <div class="grid">
+
+                <div class="card">
+                    <div class="img-container">
+                        <img src="images/img-37.jpg" alt="image">
+                    </div>
+
+                    <div class="data-container">
+                        <h1 class='title'>Title</h1>
+                        <p class='detail'>Lorem ipsum dolor sit amet.</p>
+                        <p class='author'>Author</p>
+                    </div>
+                </div>
+
+                <div class="card">
+                    <div class="img-container">
+                        <img src="images/img-37.jpg" alt="image">
+                    </div>
+
+                    <div class="data-container">
+                        <h1 class='title'>Title</h1>
+                        <p class='detail'>Lorem ipsum dolor sit amet.</p>
+                        <p class='author'>Author</p>
+                    </div>
+                </div>
+
+                <div class="card">
+                    <div class="img-container">
+                        <img src="images/img-19.jpg" alt="image">
+                    </div>
+                    <div class="data-container">
+                        <h1 class='title'>Title</h1>
+                        <p class='detail'>Lorem ipsum dolor sit amet.</p>
+                        <p class='author'>Author</p>
+                    </div>
+                </div>
+
+                <div class="card">
+                    <div class="img-container">
+                        <img src="images/img-40.jpg" alt="image">
+                    </div>
+                    <div class="data-container">
+                        <h1 class='title'>Title</h1>
+                        <p class='detail'>Lorem ipsum dolor sit amet.</p>
+                        <p class='author'>Author</p>
+                    </div>
+                </div>
+
+            </div>
+        </div>
+    </div>
+</body>
+
+</html>
