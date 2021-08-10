@@ -19,20 +19,24 @@ window.onload = () => {
         getToken(formData).then(response => {
             console.log(response.data.token);
 
+            if (response.status === 200){
+                form_otp.transaction_btn.disabled = false;
 
-            form_otp.addEventListener('submit', e => {
-                e.preventDefault();
-                let otp = form_otp.otp.value;
-                let formData2 = new FormData();
-
-                console.log(otp)
-
-                formData2.append('otp', otp)
-
-                getTransactions(response.data.token, formData2).then(response => {
-                    displayTransactions(response.data)
+                form_otp.addEventListener('submit', e => {
+                    
+                    e.preventDefault();
+                    let otp = form_otp.otp.value;
+                    let formData2 = new FormData();
+    
+                    console.log(otp)
+    
+                    formData2.append('otp', otp)
+    
+                    getTransactions(response.data.token, formData2).then(response => {
+                        displayTransactions(response.data)
+                    });
                 });
-            });
+            }
 
 
         })
