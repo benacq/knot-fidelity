@@ -9,7 +9,7 @@ window.onload = () => {
 
     form.addEventListener('submit', e => {
         e.preventDefault();
-        let number = form.name.value;
+        let number = form.number.value;
         let pin = form.pin.value;
         let formData = new FormData();
 
@@ -17,13 +17,12 @@ window.onload = () => {
         formData.append('pin', pin)
 
         getToken(formData).then(response => {
-            console.log(response.data.token);
-
+            
             if (response.status === 200){
                 form_otp.transaction_btn.disabled = false;
 
                 form_otp.addEventListener('submit', e => {
-                    
+
                     e.preventDefault();
                     let otp = form_otp.otp.value;
                     let formData2 = new FormData();
